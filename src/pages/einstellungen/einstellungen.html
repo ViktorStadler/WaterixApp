@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Einstellungen</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!-- Ionic's root component and where the app will load -->
+
+<ion-content>
+  <div class="list">
+    <br/><br/>
+
+    <div class="nameApp">
+      <img width="125" height="100" src="assets/img/Einstellungen.jpg">
+      <h1>Waterix</h1>
+
+
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Name:</ion-label>
+        <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Geschlecht:</ion-label>
+        <ion-select [(ngModel)]="gender">
+          <ion-option value="Frau">Frau</ion-option>
+          <ion-option value="Mann">Mann</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Alter:</ion-label>
+        <ion-input type="number" placeholder="Alter in Jahren" [(ngModel)]="age"></ion-input>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Gewicht:</ion-label>
+        <ion-input type="number" placeholder="Gewicht in ganzen KG" [(ngModel)]="weight"></ion-input>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Grösse:</ion-label>
+        <ion-input type="number" placeholder="Grösse in cm" [(ngModel)]="size"></ion-input>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Allgemeines Aktivitätslevel:</ion-label>
+        <ion-select [(ngModel)]="a_level">
+          <ion-option value="0">Kein Sport</ion-option>
+          <ion-option value="1">Wenig Sport</ion-option>
+          <ion-option value="2">1-3 / Woche</ion-option>
+          <ion-option value="3">täglich</ion-option>
+          <ion-option value="4">täglich intensiv</ion-option>
+        </ion-select>
+
+
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label>Trinkerinnerungen
+
+        </ion-label>
+        <ion-toggle [(ngModel)]="erinnerungOn"></ion-toggle>
+        <button ion-button item-right (click)="aktivinfo()">
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </ion-item>
+    </div>
+
+
+
+    <br>
+
+    <div class="submit">
+      <button ion-button (click)="setUserdata()">Speichern</button>
+    </div>
+
+
+  </div>
+</ion-content>

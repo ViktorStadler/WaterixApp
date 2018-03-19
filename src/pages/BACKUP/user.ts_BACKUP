@@ -1,0 +1,4 @@
+export class User {
+  constructor(public name: string, public geschlecht: string, public alter: Date, public grösse: number, public erinnerung: boolean) {
+  }
+}

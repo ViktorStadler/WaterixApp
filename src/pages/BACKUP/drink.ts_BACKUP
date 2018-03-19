@@ -1,0 +1,39 @@
+
+
+
+export class drinks {
+
+  //public amount: number
+  //public date: string
+  //public coffe: number
+  //public alk: number
+
+
+
+  constructor(public date: string, public items: any[]){
+this.date=date;
+this.items=items;
+  }
+
+  addItem(date, menge, coffe, alk) {
+
+   this.items.push({
+     date: date,
+     menge: menge,
+     coffe: coffe,
+     alk: alk
+
+   });
+
+
+
+
+
+   //test
+
+
+ }
+
+
+}
+

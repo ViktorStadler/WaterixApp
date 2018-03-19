@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="bottle">
+    <div class="bottle__head"></div>
+    <div class="bottle__inner">
+      <div>
+        <div *ngIf="prozentgetrunken > 90 && prozentgetrunken < 100" class="bottle__water"
+             [ngStyle]="{ height: prozentgetrunken + '%' }">
+          <span class="bottle__label" *ngIf="prozentgetrunken > 19">{{ prozentgetrunken | number:0}}%</span>
+        </div>
+        <div *ngIf="prozentgetrunken <= 90" class="bottle__water_under80"
+             [ngStyle]="{ height: prozentgetrunken + '%' }">
+          <span class="bottle__label" *ngIf="prozentgetrunken > 19">{{ prozentgetrunken | number:0}}%</span>
+        </div>
+        <div *ngIf="prozentgetrunken > 99" class="bottle__water" [ngStyle]="{ height: 100 + '%' }">
+          <span class="bottle__label" *ngIf="prozentgetrunken > 19">{{ prozentgetrunken | number:0 }}%</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div>
+    <ion-fab left middle>
+      <button ion-fab mini [navPush]="heutePage">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <ion-fab right middle>
+      <button ion-fab mini [navPush]="hinzufuegenPage">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
+<div>
+  <ion-card class="card-background">
+    <ion-card-header>
+      <button ion-item (click)="DrEich()"><h2>{{today}}</h2>
+
+        <ion-avatar item-right *ngIf="entries <= 2 && entries > 0 ">
+          <img src="assets/img/WasserAufruf.jpg">
+        </ion-avatar>
+        <ion-avatar item-right *ngIf="entries > 2">
+          <img src="assets/img/WasserChampion.jpg">
+        </ion-avatar>
+      </button>
+
+    </ion-card-header>
+    <ion-list>
+      <ion-item bottom>
+        <ion-label>Aktivitätslevel </ion-label>
+        <ion-select [(ngModel)]="alevel" (ionChange)="activeChange()">
+          <ion-option value="0">Kein Sport</ion-option>
+          <ion-option value="1">Wenig Bewegung</ion-option>
+          <ion-option value="2">1-3 pro Woche Sport</ion-option>
+          <ion-option value="3">Täglich Sport</ion-option>
+          <ion-option value="4">Täglich intensiven Sport</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item ><h3>Heute getrunken: {{heutegetrunken}} mL </h3>
+      </ion-item>
+      <ion-item><h3> Heutige Trinkempfehlung: {{trinkempfehlung}} mL </h3> </ion-item>
+      <ion-item>
+Kopfweh:
+        <button ion-button outline color={{thup}} item-right icon-left (click)="Feelgood()">
+          <ion-icon name="thumbs-up"></ion-icon>
+        </button>
+          <button ion-button outline color={{thud}}  item-right icon-left (click)="Feelbad()">
+            <ion-icon name="thumbs-down"></ion-icon>
+          </button>
+        </ion-item>
+
+
+
+    </ion-list>
+  </ion-card>
+</div>
+
+
+</ion-content>
+

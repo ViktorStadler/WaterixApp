@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hinzufügen</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-title>
+    Getränk hinzufügen
+  </ion-title>
+
+  <ion-list>
+
+    <ion-item>
+      <button ion-button item-right  (click)="addinfo()">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">
+        Menge
+      </ion-label>
+      <ion-badge color="primary" item-right>{{menge | json}} mL</ion-badge>
+      <ion-range min="50" max="1000" step="50" snaps="true" [(ngModel)]="menge" color="primary">
+        <ion-icon range-left small name="water"></ion-icon>
+        <ion-icon range-right name="water"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <ion-item>
+      <ion-label>Alkoholgehalt</ion-label>
+      <ion-select [(ngModel)]="alcohol">
+        <ion-option value=0>0%</ion-option>
+        <ion-option value=5>5% (z.B. Bier)</ion-option>
+        <ion-option value=14>14% (z.B. Wein)</ion-option>
+        <ion-option value=40>40% (z.B. Spirituosen)</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+
+
+  <ion-item>
+
+
+
+
+
+
+        <button item-right ion-button (click)="addDrink()">Hinzufügen</button>
+
+
+  </ion-item>
+</ion-content>

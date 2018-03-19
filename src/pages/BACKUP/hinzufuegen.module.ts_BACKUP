@@ -1,0 +1,16 @@
+import { NgModule } from '@angular/core';
+import { IonicPageModule } from 'ionic-angular';
+import { HinzufuegenPage } from './hinzufuegen';
+
+@NgModule({
+  declarations: [
+    HinzufuegenPage,
+  ],
+  imports: [
+    IonicPageModule.forChild(HinzufuegenPage),
+  ],
+  exports: [
+    HinzufuegenPage
+  ]
+})
+export class HinzufuegenModule {}

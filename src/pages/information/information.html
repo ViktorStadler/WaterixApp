@@ -1,0 +1,301 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!-- Ionic's root component and where the app will load -->
+
+<ion-content>
+
+
+  <ion-item-divider class="item-divider-md-primary">
+    Home Wasserflasche
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/plus.png">
+    </ion-avatar>
+    <h2>Plus Zeichen</h2>
+    <p>Drücke das Plus Zeichen neben der Flasche um </p>
+    <p>ein Trinkevent hinzuzufügen.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/minus.png">
+    </ion-avatar>
+    <h2>Minus Zeichen</h2>
+    <p>Drücke das Minus Zeichen neben der Flasche um </p>
+    <p>ein Trinkevent zu löschen oder zu Heute zu gehen.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/prozentflasche.png">
+    </ion-avatar>
+    <h2>Flaschenkopf mit Prozentanzeige</h2>
+    <p>Der Flaschenkopf zeigt wieviel Prozent Du vom </p>
+    <p>Tagesbedarf getrunken hast.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/tagesbedarf.png">
+    </ion-avatar>
+    <h2> Tagesbedarf Flaschenboden</h2>
+    <p>Am Boden der Flasche wird der aktuelle </p>
+    <p>Tagesbedarf angezeigt.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/getrunkenemenge.png">
+    </ion-avatar>
+    <h2>Getrunkene Menge</h2>
+    <p>Im oberen Teil der Flasche werden zwei Zahlen </p>
+    <p>angezeigt. Die getrunkene Menge und wieviel ml </p>
+    <p>man noch trinken muss, um den Tagesbedarf </p>
+    <p>zu erreichen.</p>
+  </ion-item>
+
+
+  <ion-item-divider class="item-divider-md-primary">
+    Userlevel
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/tropfenglas.png">
+    </ion-avatar>
+    <h2>Beginner</h2>
+    <p>Beginner Status. Trinke mehr!</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/WasserAufruf.jpg">
+    </ion-avatar>
+    <h2>Advanced</h2>
+    <p>Advanced Status. Du trinkst regelemässig und genug!</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/WasserChampion.jpg">
+    </ion-avatar>
+    <h2>Water Champion</h2>
+    <p>Water Champion Status! Wow du bist ein Vieltrinker!!!</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="assets/img/tropfenmikro.png">
+    </ion-avatar>
+    <h2>Dörrpflaume</h2>
+    <p>Du bist trinkfaul und solltest mehr Trinken!</p>
+  </ion-item>
+
+  <ion-item-divider class="item-divider-md-primary">
+    Tageseinstellungen Home
+  </ion-item-divider>
+
+
+  <ion-card>
+    <img src="assets/img/aktivitaet.PNG"/>
+    <ion-card-content>
+      <ion-card-title>
+        Aktivitätslevel
+      </ion-card-title>
+      <p>
+        Über das Dropdown kann der Aktivitätslevel für den heutigen Tag geändert werden. Treibt man an diesem
+        Tag mehr Sport, wird dies in der Trinkempfehlung berücksichtigt.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/kopfweh.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Kopfweh
+      </ion-card-title>
+      <p>
+        Die kannst über die Smileys protokollieren, ob du an einem
+        bestimmten Tag Kopfweh hattest oder nicht. Wassermangel ist eine häufige Ursache
+        für Kopfschmerzen. Vergleiche den Wasserkonsum an Tagen mit Kopfweh mit denen ohne Kopfweh.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/temperatur.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Temperatur
+      </ion-card-title>
+      <p>
+        Die Temperatur an deinem Standort wird für die Tageswasserbedarfsberechnung
+        miteinbezogen. In der aktuellen Version funktioniert es leider erst in Wien.
+        Weitere Städte folgen in kürze.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-item-divider class="item-divider-md-primary">
+    Kalender Seite
+  </ion-item-divider>
+
+  <ion-card>
+    <img src="assets/img/kalender.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Kalender Datum Auswahl
+      </ion-card-title>
+      <p>
+        Wähle im Kalender den Tag aus, dessen Daten du einsehen möchtest. Über den
+        Heute Button gelangst du wieder zurück auf das aktuelle Datum.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/kalenderdetails.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Kalender Tagesdetails
+      </ion-card-title>
+      <p>
+        In den Tagesdetails vom ausgewählten Tag wird dir die Insgesamt getrunkene Menge,
+        die Tagesdrinkempfehlung anhand deines Aktivtätslevels, die Prozent die du insgesamt
+        getrunken hast und dein Kopfweh Status, wenn du ihn angegeben hast, angezeigt.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider class="item-divider-md-primary">
+    Heute Seite
+  </ion-item-divider>
+
+  <ion-card>
+    <img src="assets/img/heute.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Details des aktuellen Tages
+      </ion-card-title>
+      <p>
+        Die Heute Seite zeigt dir alle Trinkevents, die du heute hinzugefügt hast. Du kannst die
+        einzelnen Eintragungen einfach über den Löschen Button wieder aus dem Speicher löschen.
+        Neben der Zeit wird dir noch die Menge und die Volumen Prozent, wenn es Alkohlhaltig war, angezeigt.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider class="item-divider-md-primary">
+    Hinzufügen Seite
+  </ion-item-divider>
+
+  <ion-card>
+    <img src="assets/img/hinzufuegen.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Hinzufügen
+      </ion-card-title>
+      <p>
+        Um ein Trinkevent hinzuzufügen, muss über den Schieberegler die Menge in
+        50ml Schritten angegeben werden. War das Getränk Alkoholhaltig kann über das
+        Dropdown Menu ein Näherungswert eingegeben werden.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider class="item-divider-md-primary">
+    Achievement Seite
+  </ion-item-divider>
+
+  <ion-card>
+    <img src="assets/img/achievementsneu.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Achievement
+      </ion-card-title>
+      <p>
+      Druch viel und regelemässiges Trinken kannst du dir Achievements freischalten. Diese werden dir unter dieser Seite angezeigt.
+        Erreichte Achievments sind grün, noch nicht erreichte sind grau.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-item-divider class="item-divider-md-primary">
+    Einstellungen
+  </ion-item-divider>
+
+  <ion-card>
+    <img src="assets/img/einstellungenneu2.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Einstellungen
+      </ion-card-title>
+      <p>
+        Geschlecht, Alter, Gewicht, Grösse und Allgemeiner Aktivitätslevel werden zur
+        berechnung des allgemeinen Tagesbedarfs an Flüssigkeit herangezogen. Diese Daten
+        können auch im Nachhinein verändert werden. Dabei wird der allgemeine Tagesbedarf neu
+        berechnet.
+        Wenn die Erinnerungsfunktion aktiviert ist, wird insofern kein Trinkevent in den
+        letzten 120min hinzugefügt wurde eine lokale Notifikation auseglöst. Um die Eingaben
+        zu speichern muss der Speichern Button gedrückt werden.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/erinnerung.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Erinnerungen
+      </ion-card-title>
+      <p>
+        Erinnerung werden im Notification Bereich angezeigt. Diese können auch im Nachhinein aktiviert oder deaktiviert
+        werden.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider class="item-divider-md-primary">
+    Über das APP Waterix
+  </ion-item-divider>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Impressum
+      </ion-card-title>
+      <p>
+        Das App Waterix wurde im Zuge des Modules Mensch-Computer-Interaktion an der
+        Fakultät für Informatik der Universität Wien entwickelt.
+        Die Entwickler übernehmen keine Haftung für die Richtigkeit der Trinkempfehlungen und sonstigen Angaben
+        , Empfehlungen und Informationen die in dem App gemacht oder gegeben werden.
+        Die Entwickler sind unter der E-Mail Adresse info@waterix.net für Fragen und Verbesserungsvorschläge erreichbar.
+
+
+      </p>
+      <ion-item>
+        Kontakt: info@waterix.net
+      </ion-item>
+      <ion-item>
+        Copyright Waterix 2017
+      </ion-item>
+    </ion-card-content>
+
+
+  </ion-card>
+
+
+</ion-content>

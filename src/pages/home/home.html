@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-8>
+      <div class="bottle">
+        <button ion-fab class="fab_buttonp" mini [navPush]="hinzufuegenPage">
+          <ion-icon name="add"></ion-icon>
+        </button>
+
+        <button ion-fab class="fab_buttonm" mini [navPush]="heutePage">
+          <ion-icon name="remove"></ion-icon>
+        </button>
+
+        <div *ngIf="prozentgetrunken <= 99" class="bottle__head">
+          <span class="bottle__label" *ngIf="prozentgetrunken > 0">{{ prozentgetrunken | number:0}}%</span>
+        </div>
+        <div *ngIf="prozentgetrunken > 99" class="bottle__head100">
+          <span class="bottle__label" *ngIf="prozentgetrunken > 0">{{ prozentgetrunken | number:0}}%</span>
+        </div>
+
+        <div class="bottle__inner">
+          <div>
+            <div *ngIf="prozentgetrunken > 90 && prozentgetrunken < 100" class="bottle__water"
+                 [ngStyle]="{ height: prozentgetrunken + '%' }">
+            </div>
+            <div *ngIf="prozentgetrunken <= 90" class="bottle__water_under80"
+                 [ngStyle]="{ height: prozentgetrunken + '%' }">
+            </div>
+            <div *ngIf="prozentgetrunken > 99" class="bottle__water" [ngStyle]="{ height: 100 + '%' }">
+            </div>
+            <span class="bottle_labeltop" color="primary">{{trinkempfehlung}} mL</span>
+            <span class="bottle_labeldiff">-{{difference}}</span>
+            <div class="bottle__mL">
+              <span class="bottle_label">{{heutegetrunken}} mL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </ion-col>
+    <ion-col col-4>
+      <button ion-item class="test" (click)="DrEich()" *ngIf="entries > 0 ">
+
+        <ion-avatar item-left *ngIf="entries <= 2 && entries > 0 ">
+          <img src="assets/img/WasserAufruf.jpg">
+        </ion-avatar>
+        <ion-avatar item-left *ngIf="entries > 2">
+          <img src="assets/img/WasserChampion.jpg">
+        </ion-avatar>
+
+      </button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-card class="card-background">
+
+      <ion-list>
+        <ion-item>
+          <button ion-button item-right (click)="aktivinfo()">
+            <ion-icon name="information-circle"></ion-icon>
+          </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="dark">
+            <ion-col col-1>
+            <ion-icon name="bicycle" item-left></ion-icon>
+            </ion-col>
+              Aktivität:
+
+
+
+          </ion-label>
+
+          <ion-select color="primary" [selectOptions]="selectOptions" [(ngModel)]="alevel" (ionChange)="activeChange()">
+            <ion-option value="0">Kein Sport</ion-option>
+            <ion-option value="1">5 - 10 min</ion-option>
+            <ion-option value="2">10 - 30 min</ion-option>
+            <ion-option value="3">30 - 60 min </ion-option>
+            <ion-option value="4">> 60 min intensiv</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-col col-1>
+          <ion-icon name="logo-reddit" item-left></ion-icon>
+          </ion-col>
+
+          Kopfweh:
+          <button ion-button outline color={{thup}} item-right (click)="Feelgood()">
+            <ion-icon name="happy"></ion-icon>
+          </button>
+          <button ion-button outline color={{thud}} item-right (click)="Feelbad()">
+            <ion-icon name="sad"></ion-icon>
+          </button>
+        </ion-item>
+
+
+  <ion-item>
+    <ion-label color="dark">
+      <ion-col col-1>
+        <ion-icon name="sunny" item-left></ion-icon>
+      </ion-col>
+      Temperatur:
+
+
+      <div class="inl" *ngIf="tempsel=='wien'">
+        {{temp}} °C
+      </div>
+
+
+
+
+
+    </ion-label>
+    <ion-select color="primary" [selectOptions]="selectOptions2" [(ngModel)]="tempsel" (ionChange)="tempChange()">
+      <ion-option value="wien">Wien</ion-option>
+          </ion-select>
+
+
+
+     </ion-item>
+  </ion-list>
+  </ion-card>
+  </ion-row>
+
+
+</ion-content>
+

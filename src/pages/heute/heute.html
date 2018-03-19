@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Heute {{today | date: 'dd.MM.yyyy'}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-item-divider class="item-divider-md-primary">
+    Alle heute hinzugefügten Trinkevents
+  </ion-item-divider>
+
+  <ion-grid>
+
+    <ion-item *ngFor="let drink of drinks">
+      <ion-row>
+        <ion-col>
+          <b>Zeit:</b> {{drink.date | date: 'HH:mm'}} Uhr
+        </ion-col>
+
+        <ion-col>
+          <b> | </b>
+        </ion-col>
+
+        <ion-col>
+          {{ drink.menge }} ml
+        </ion-col>
+
+        <ion-col>
+          <b> | </b>
+        </ion-col>
+
+        <ion-col>
+          <span *ngIf="drink.alcohol==0"> 0 % </span>
+          <span *ngIf="drink.alcohol>0"> {{drink.alcohol}}% </span>
+        </ion-col>
+
+        <ion-col>
+          <button ion-button (click)="removeDrink(drink.id)">Löschen</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,197 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
+
+import { Storage } from '@ionic/storage';
+import {drinks} from "../../classes/drink";
+
+
+
+/**
+ * Generated class for the Hinzufuegen page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+@IonicPage()
+
+
+@Component({
+  selector: 'page-hinzufuegen',
+  templateUrl: 'hinzufuegen.html',
+
+})
+
+
+export class HinzufuegenPage {
+ homePage = HomePage;
+
+
+  menge: number = 250;
+  coffeecolor: string = "grey";
+  alkcolor: string = "grey";
+  alkdisable: boolean=true;
+  coffedisable: boolean=true;
+  a_strong: number =5;
+  c_strong: number=80;
+  storage: any;
+
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage) {
+
+    this.storage=storage;
+
+    //funktion um knob zu erkennen?
+
+
+
+
+
+
+  }
+
+TogglePanel(check, name) {
+    //check values true false
+  console.log(event);
+  console.log(name);
+if(name=="coffee"){
+//first the color
+if(check==true){
+  this.coffeecolor="primary";
+  this.coffedisable=false;
+}else{
+  if(check==false){
+    this.coffeecolor="grey";
+    this.coffedisable=true;
+  }
+}
+
+}else{
+  if(name=="alk"){
+    if(check==true){
+      this.alkcolor="primary";
+      this.alkdisable=false;
+    }else{
+      if(check==false){
+        this.alkcolor="grey";
+      this.alkdisable=true;
+      }
+    }
+
+  }
+
+}
+
+
+
+  }
+
+  deletealldrinks(){
+
+
+    this.storage.clear();
+
+
+
+  }
+
+
+
+  newdrink() {
+
+// ein neues Getränk hinzufügen in den sotrage
+
+    var menge= this.menge;
+
+    var actmonth = new Date().getMonth()+1;
+    var today = new Date().getDate();
+    var actyear= new  Date().getFullYear();
+    var date= (today+"."+ actmonth + "." + actyear);
+    var coffe=0;
+    var alk=0;
+
+
+
+    if(this.coffedisable==false){coffe=this.c_strong}
+    if(this.alkdisable==false){alk=this.a_strong}
+
+
+
+
+
+
+// der array drinks
+
+
+    this.storage.get(date).then((storeobj) => {
+      if(storeobj!=null){
+        //es ist etwas bereits zu dem datum gespeichert der speicher muss erweitert werden
+
+        //JSON.parse(storeobj);
+
+
+        storeobj.items.push({
+          date: date,
+          menge: menge,
+          coffe: coffe,
+          alk: alk
+
+        });
+
+        //storeobj.addItem(date,menge,coffe,alk);
+        this.storage.set(date,storeobj);
+        console.log("1");
+        console.log(storeobj);
+
+      }else{
+
+      //der speicher ist leer; er kann neu befüllt werden
+        var drinkstore = [];
+        var ndrinks= new drinks(date, drinkstore);
+        console.log(ndrinks);
+        ndrinks.addItem(date,menge,coffe,alk);
+        console.log("2");
+        console.log(ndrinks);
+        this.storage.set(date,ndrinks);
+      }
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Hinzufuegen');
+
+
+
+  }
+
+
+}

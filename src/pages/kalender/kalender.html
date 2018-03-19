@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{dieserMonat}}</ion-title>
+    <ion-buttons end>
+      <button ion-button [disabled]="istHeute" (click)="heute()">Heute</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <calendar [calendarMode]="calendar.mode"
+              [currentDate]="calendar.currentDate"
+              (onCurrentDateChanged)="onCurrentDateChanged($event)"
+              (onTitleChanged)="onDieserMonatChanged($event)"
+              (onTimeSelected)="onTimeSelected($event)"
+              step="30"
+              noEventsLabel="">
+    </calendar>
+  </div>
+
+  <ion-item-divider class="item-divider-md-primary">
+    <b>Getrunken & Tagestrinkempfehlung vom {{selectedDate | date: 'dd.MM.yy'}}</b>
+  </ion-item-divider>
+
+  <ion-item>
+    Insgesamt getrunken: {{getrunken}}ml
+  </ion-item>
+
+  <ion-item>
+    Tagestrinkempfehlung: {{tagestrinkempfehlung}}ml
+  </ion-item>
+
+  <ion-item>
+    Prozent getrunken: {{prozent}}%
+  </ion-item>
+
+  <ion-item *ngIf="kopfweh==1">
+    Kopfweh: Kein Kopfweh
+  </ion-item>
+
+  <ion-item *ngIf="kopfweh==2">
+    Kopfweh: Hatte Kopfweh
+  </ion-item>
+
+  <br>
+
+  <ion-item-divider class="item-divider-md-primary">
+    <b>Trinkevents </b>
+  </ion-item-divider>
+
+  <ion-item *ngFor="let drink of drinks">
+    <div>
+      <ion-col>
+        Zeit: {{drink.date | date: 'HH:mm'}} Uhr
+      </ion-col>
+      <ion-col>
+        Menge: {{ drink.menge }} ml
+      </ion-col>
+      <ion-col>
+        <span *ngIf="drink.alcohol==0"> Alkohol: Nein  </span>
+        <span *ngIf="drink.alcohol>0"> Alkohol: {{drink.alcohol}}%  </span>
+      </ion-col>
+    </div>
+  </ion-item>
+
+</ion-content>
+
